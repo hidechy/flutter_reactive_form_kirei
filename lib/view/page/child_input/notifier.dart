@@ -30,9 +30,27 @@ class ChildInputNotifier extends StateNotifier<ChildInputState> {
       value: birthday != null ? birthday.toString().split(' ')[0] : '',
     );
 
+    final emailContoller = getController(
+      type: ValidateTextFieldType.email,
+      value: state.inputData.email,
+    );
+
+    final passwordContoller = getController(
+      type: ValidateTextFieldType.password,
+      value: state.inputData.password,
+    );
+
+    final passwordConfirmationContoller = getController(
+      type: ValidateTextFieldType.passwordConfirmation,
+      value: state.inputData.passwordConfirmation,
+    );
+
     state = state.copyWith(
       nameController: nameContoller,
       birthdayController: birthdayContoller,
+      emailController: emailContoller,
+      passwordController: passwordContoller,
+      passwordConfirmationController: passwordConfirmationContoller,
     );
   }
 
@@ -54,6 +72,36 @@ class ChildInputNotifier extends StateNotifier<ChildInputState> {
     state = state.copyWith(
       inputData: state.inputData.copyWith(
         birthday: birthday,
+      ),
+    );
+  }
+
+  ///
+  void onChangedEmailField(String email) {
+    state.emailController!.updateValue(email);
+    state = state.copyWith(
+      inputData: state.inputData.copyWith(
+        email: email,
+      ),
+    );
+  }
+
+  ///
+  void onChangedPasswordField(String password) {
+    state.passwordController!.updateValue(password);
+    state = state.copyWith(
+      inputData: state.inputData.copyWith(
+        password: password,
+      ),
+    );
+  }
+
+  ///
+  void onChangedPasswordConfirmationField(String passwordConfirmation) {
+    state.passwordConfirmationController!.updateValue(passwordConfirmation);
+    state = state.copyWith(
+      inputData: state.inputData.copyWith(
+        passwordConfirmation: passwordConfirmation,
       ),
     );
   }

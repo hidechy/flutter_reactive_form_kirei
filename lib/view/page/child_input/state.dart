@@ -11,6 +11,9 @@ class ChildInputState with _$ChildInputState {
     ///
     FormControl<String>? nameController,
     FormControl<String>? birthdayController,
+    FormControl<String>? emailController,
+    FormControl<String>? passwordController,
+    FormControl<String>? passwordConfirmationController,
   }) = _ChildInputState;
 }
 
@@ -20,5 +23,8 @@ class ChildInputData with _$ChildInputData {
   const factory ChildInputData({
     @Default('') String name,
     DateTime? birthday,
+    @Default('') String email,
+    @Default('') String password,
+    @Default('') String passwordConfirmation,
   }) = _ChildInputData;
 }

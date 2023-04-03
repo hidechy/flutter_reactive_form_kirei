@@ -22,6 +22,12 @@ mixin _$ChildInputState {
   FormControl<String>? get nameController => throw _privateConstructorUsedError;
   FormControl<String>? get birthdayController =>
       throw _privateConstructorUsedError;
+  FormControl<String>? get emailController =>
+      throw _privateConstructorUsedError;
+  FormControl<String>? get passwordController =>
+      throw _privateConstructorUsedError;
+  FormControl<String>? get passwordConfirmationController =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChildInputStateCopyWith<ChildInputState> get copyWith =>
@@ -37,7 +43,10 @@ abstract class $ChildInputStateCopyWith<$Res> {
   $Res call(
       {ChildInputData inputData,
       FormControl<String>? nameController,
-      FormControl<String>? birthdayController});
+      FormControl<String>? birthdayController,
+      FormControl<String>? emailController,
+      FormControl<String>? passwordController,
+      FormControl<String>? passwordConfirmationController});
 
   $ChildInputDataCopyWith<$Res> get inputData;
 }
@@ -58,6 +67,9 @@ class _$ChildInputStateCopyWithImpl<$Res, $Val extends ChildInputState>
     Object? inputData = null,
     Object? nameController = freezed,
     Object? birthdayController = freezed,
+    Object? emailController = freezed,
+    Object? passwordController = freezed,
+    Object? passwordConfirmationController = freezed,
   }) {
     return _then(_value.copyWith(
       inputData: null == inputData
@@ -71,6 +83,18 @@ class _$ChildInputStateCopyWithImpl<$Res, $Val extends ChildInputState>
       birthdayController: freezed == birthdayController
           ? _value.birthdayController
           : birthdayController // ignore: cast_nullable_to_non_nullable
+              as FormControl<String>?,
+      emailController: freezed == emailController
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as FormControl<String>?,
+      passwordController: freezed == passwordController
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as FormControl<String>?,
+      passwordConfirmationController: freezed == passwordConfirmationController
+          ? _value.passwordConfirmationController
+          : passwordConfirmationController // ignore: cast_nullable_to_non_nullable
               as FormControl<String>?,
     ) as $Val);
   }
@@ -95,7 +119,10 @@ abstract class _$$_ChildInputStateCopyWith<$Res>
   $Res call(
       {ChildInputData inputData,
       FormControl<String>? nameController,
-      FormControl<String>? birthdayController});
+      FormControl<String>? birthdayController,
+      FormControl<String>? emailController,
+      FormControl<String>? passwordController,
+      FormControl<String>? passwordConfirmationController});
 
   @override
   $ChildInputDataCopyWith<$Res> get inputData;
@@ -115,6 +142,9 @@ class __$$_ChildInputStateCopyWithImpl<$Res>
     Object? inputData = null,
     Object? nameController = freezed,
     Object? birthdayController = freezed,
+    Object? emailController = freezed,
+    Object? passwordController = freezed,
+    Object? passwordConfirmationController = freezed,
   }) {
     return _then(_$_ChildInputState(
       inputData: null == inputData
@@ -129,6 +159,18 @@ class __$$_ChildInputStateCopyWithImpl<$Res>
           ? _value.birthdayController
           : birthdayController // ignore: cast_nullable_to_non_nullable
               as FormControl<String>?,
+      emailController: freezed == emailController
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as FormControl<String>?,
+      passwordController: freezed == passwordController
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as FormControl<String>?,
+      passwordConfirmationController: freezed == passwordConfirmationController
+          ? _value.passwordConfirmationController
+          : passwordConfirmationController // ignore: cast_nullable_to_non_nullable
+              as FormControl<String>?,
     ));
   }
 }
@@ -139,7 +181,10 @@ class _$_ChildInputState implements _ChildInputState {
   const _$_ChildInputState(
       {this.inputData = const ChildInputData(),
       this.nameController,
-      this.birthdayController});
+      this.birthdayController,
+      this.emailController,
+      this.passwordController,
+      this.passwordConfirmationController});
 
   @override
   @JsonKey()
@@ -150,10 +195,16 @@ class _$_ChildInputState implements _ChildInputState {
   final FormControl<String>? nameController;
   @override
   final FormControl<String>? birthdayController;
+  @override
+  final FormControl<String>? emailController;
+  @override
+  final FormControl<String>? passwordController;
+  @override
+  final FormControl<String>? passwordConfirmationController;
 
   @override
   String toString() {
-    return 'ChildInputState(inputData: $inputData, nameController: $nameController, birthdayController: $birthdayController)';
+    return 'ChildInputState(inputData: $inputData, nameController: $nameController, birthdayController: $birthdayController, emailController: $emailController, passwordController: $passwordController, passwordConfirmationController: $passwordConfirmationController)';
   }
 
   @override
@@ -166,12 +217,26 @@ class _$_ChildInputState implements _ChildInputState {
             (identical(other.nameController, nameController) ||
                 other.nameController == nameController) &&
             (identical(other.birthdayController, birthdayController) ||
-                other.birthdayController == birthdayController));
+                other.birthdayController == birthdayController) &&
+            (identical(other.emailController, emailController) ||
+                other.emailController == emailController) &&
+            (identical(other.passwordController, passwordController) ||
+                other.passwordController == passwordController) &&
+            (identical(other.passwordConfirmationController,
+                    passwordConfirmationController) ||
+                other.passwordConfirmationController ==
+                    passwordConfirmationController));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, inputData, nameController, birthdayController);
+  int get hashCode => Object.hash(
+      runtimeType,
+      inputData,
+      nameController,
+      birthdayController,
+      emailController,
+      passwordController,
+      passwordConfirmationController);
 
   @JsonKey(ignore: true)
   @override
@@ -182,9 +247,13 @@ class _$_ChildInputState implements _ChildInputState {
 
 abstract class _ChildInputState implements ChildInputState {
   const factory _ChildInputState(
-      {final ChildInputData inputData,
-      final FormControl<String>? nameController,
-      final FormControl<String>? birthdayController}) = _$_ChildInputState;
+          {final ChildInputData inputData,
+          final FormControl<String>? nameController,
+          final FormControl<String>? birthdayController,
+          final FormControl<String>? emailController,
+          final FormControl<String>? passwordController,
+          final FormControl<String>? passwordConfirmationController}) =
+      _$_ChildInputState;
 
   @override
   ChildInputData get inputData;
@@ -195,6 +264,12 @@ abstract class _ChildInputState implements ChildInputState {
   @override
   FormControl<String>? get birthdayController;
   @override
+  FormControl<String>? get emailController;
+  @override
+  FormControl<String>? get passwordController;
+  @override
+  FormControl<String>? get passwordConfirmationController;
+  @override
   @JsonKey(ignore: true)
   _$$_ChildInputStateCopyWith<_$_ChildInputState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -204,6 +279,9 @@ abstract class _ChildInputState implements ChildInputState {
 mixin _$ChildInputData {
   String get name => throw _privateConstructorUsedError;
   DateTime? get birthday => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  String get passwordConfirmation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChildInputDataCopyWith<ChildInputData> get copyWith =>
@@ -216,7 +294,12 @@ abstract class $ChildInputDataCopyWith<$Res> {
           ChildInputData value, $Res Function(ChildInputData) then) =
       _$ChildInputDataCopyWithImpl<$Res, ChildInputData>;
   @useResult
-  $Res call({String name, DateTime? birthday});
+  $Res call(
+      {String name,
+      DateTime? birthday,
+      String email,
+      String password,
+      String passwordConfirmation});
 }
 
 /// @nodoc
@@ -234,6 +317,9 @@ class _$ChildInputDataCopyWithImpl<$Res, $Val extends ChildInputData>
   $Res call({
     Object? name = null,
     Object? birthday = freezed,
+    Object? email = null,
+    Object? password = null,
+    Object? passwordConfirmation = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -244,6 +330,18 @@ class _$ChildInputDataCopyWithImpl<$Res, $Val extends ChildInputData>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      passwordConfirmation: null == passwordConfirmation
+          ? _value.passwordConfirmation
+          : passwordConfirmation // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -256,7 +354,12 @@ abstract class _$$_ChildInputDataCopyWith<$Res>
       __$$_ChildInputDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, DateTime? birthday});
+  $Res call(
+      {String name,
+      DateTime? birthday,
+      String email,
+      String password,
+      String passwordConfirmation});
 }
 
 /// @nodoc
@@ -272,6 +375,9 @@ class __$$_ChildInputDataCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? birthday = freezed,
+    Object? email = null,
+    Object? password = null,
+    Object? passwordConfirmation = null,
   }) {
     return _then(_$_ChildInputData(
       name: null == name
@@ -282,6 +388,18 @@ class __$$_ChildInputDataCopyWithImpl<$Res>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      passwordConfirmation: null == passwordConfirmation
+          ? _value.passwordConfirmation
+          : passwordConfirmation // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -289,17 +407,31 @@ class __$$_ChildInputDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChildInputData implements _ChildInputData {
-  const _$_ChildInputData({this.name = '', this.birthday});
+  const _$_ChildInputData(
+      {this.name = '',
+      this.birthday,
+      this.email = '',
+      this.password = '',
+      this.passwordConfirmation = ''});
 
   @override
   @JsonKey()
   final String name;
   @override
   final DateTime? birthday;
+  @override
+  @JsonKey()
+  final String email;
+  @override
+  @JsonKey()
+  final String password;
+  @override
+  @JsonKey()
+  final String passwordConfirmation;
 
   @override
   String toString() {
-    return 'ChildInputData(name: $name, birthday: $birthday)';
+    return 'ChildInputData(name: $name, birthday: $birthday, email: $email, password: $password, passwordConfirmation: $passwordConfirmation)';
   }
 
   @override
@@ -309,11 +441,17 @@ class _$_ChildInputData implements _ChildInputData {
             other is _$_ChildInputData &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.birthday, birthday) ||
-                other.birthday == birthday));
+                other.birthday == birthday) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.passwordConfirmation, passwordConfirmation) ||
+                other.passwordConfirmation == passwordConfirmation));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, birthday);
+  int get hashCode => Object.hash(
+      runtimeType, name, birthday, email, password, passwordConfirmation);
 
   @JsonKey(ignore: true)
   @override
@@ -323,13 +461,23 @@ class _$_ChildInputData implements _ChildInputData {
 }
 
 abstract class _ChildInputData implements ChildInputData {
-  const factory _ChildInputData({final String name, final DateTime? birthday}) =
-      _$_ChildInputData;
+  const factory _ChildInputData(
+      {final String name,
+      final DateTime? birthday,
+      final String email,
+      final String password,
+      final String passwordConfirmation}) = _$_ChildInputData;
 
   @override
   String get name;
   @override
   DateTime? get birthday;
+  @override
+  String get email;
+  @override
+  String get password;
+  @override
+  String get passwordConfirmation;
   @override
   @JsonKey(ignore: true)
   _$$_ChildInputDataCopyWith<_$_ChildInputData> get copyWith =>

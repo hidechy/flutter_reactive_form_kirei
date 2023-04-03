@@ -22,6 +22,10 @@ class ChildInputPage extends ConsumerWidget {
     final form = FormGroup({
       ValidateTextFieldType.nickname.name: state.nameController!,
       ValidateTextFieldType.date.name: state.birthdayController!,
+      ValidateTextFieldType.email.name: state.emailController!,
+      ValidateTextFieldType.password.name: state.passwordController!,
+      ValidateTextFieldType.passwordConfirmation.name:
+          state.passwordConfirmationController!,
     });
 
     final scrollController = ScrollController();
@@ -34,7 +38,7 @@ class ChildInputPage extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Column(
             children: [
-              const SizedBox(height: 24),
+              const SizedBox(height: 50),
               _buildNameField(
                 notifier,
                 state.nameController!,
@@ -45,6 +49,21 @@ class ChildInputPage extends ConsumerWidget {
                 state,
                 notifier,
                 state.birthdayController!,
+              ),
+              const SizedBox(height: 16),
+              _buildEmailField(
+                notifier,
+                state.emailController!,
+              ),
+              const SizedBox(height: 16),
+              _buildPasswordField(
+                notifier,
+                state.passwordController!,
+              ),
+              const SizedBox(height: 16),
+              _buildPasswordConfirmationField(
+                notifier,
+                state.passwordConfirmationController!,
               ),
               const SizedBox(height: 32),
               _buildRegisterArea(
@@ -88,6 +107,48 @@ class ChildInputPage extends ConsumerWidget {
       controller: controller,
       lastYear: DateTime.now().year,
       onChanged: notifier.onChangedDateField,
+    );
+  }
+
+  ///
+  Widget _buildEmailField(
+    ChildInputNotifier notifier,
+    FormControl<String> controller,
+  ) {
+    return ValidateTextField(
+      type: ValidateTextFieldType.email,
+      title: 'メールアドレス',
+      isRequired: true,
+      controller: controller,
+      onChanged: notifier.onChangedEmailField,
+    );
+  }
+
+  ///
+  Widget _buildPasswordField(
+    ChildInputNotifier notifier,
+    FormControl<String> controller,
+  ) {
+    return ValidateTextField(
+      type: ValidateTextFieldType.password,
+      title: 'パスワード',
+      isRequired: true,
+      controller: controller,
+      onChanged: notifier.onChangedPasswordField,
+    );
+  }
+
+  ///
+  Widget _buildPasswordConfirmationField(
+    ChildInputNotifier notifier,
+    FormControl<String> controller,
+  ) {
+    return ValidateTextField(
+      type: ValidateTextFieldType.passwordConfirmation,
+      title: 'パスワード（確認）',
+      isRequired: true,
+      controller: controller,
+      onChanged: notifier.onChangedPasswordConfirmationField,
     );
   }
 
